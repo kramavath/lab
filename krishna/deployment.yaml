@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: krishna
+  name: krishna
+  namespace: krishna
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krishna
+  template:
+    metadata:
+      labels:
+        app: krishna
+    spec:
+      containers:
+        - image: ghcr.io/mealie-recipes/mealie:v1.2.0
+          name: krishna
+          ports:
+            - containerPort: 9000
